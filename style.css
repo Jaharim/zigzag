@@ -1,0 +1,294 @@
+:root {
+  font-family: 'Montserrat', sans-serif;
+  /*
+	font-weight: 500;
+	font-weight: 700;
+	*/
+}
+
+/* reset */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+button {
+  padding: 0;
+  margin: 0;
+}
+
+/* Layout */
+
+body {
+  z-index: -100;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 100px auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.header-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-contents h1 {
+  min-width: 26%;
+}
+
+.header-contents h1 span {
+  position: relative;
+}
+
+.header-contents h1 span:not(:first-child)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 50%;
+  z-index: -1;
+}
+
+.header-contents p {
+  position: relative;
+  max-width: 74%;
+  padding: 36px 200px 36px 130px;
+  line-height: 22px;
+}
+
+.header-contents p::after {
+  content: '';
+  width: 70px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 2%;
+}
+
+.main-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contents {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.contents-left {
+  position: relative;
+  width: 26%;
+  flex-shrink: 0;
+}
+
+.contents:nth-child(even) .contents-left {
+  order: 2;
+}
+
+.contents-left img {
+  width: 100%;
+  height: 100%;
+}
+
+.contents-left span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contents-right {
+  width: 100%;
+  padding: 24px;
+}
+
+.contents-right h2 {
+  margin-bottom: 32px;
+}
+
+.contents-right ul li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.contents-right ul li::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 9px;
+  left: 0px;
+  transform: translateY(-50%);
+}
+
+.contents-right ul li:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+/* Style */
+
+body {
+  background: #673399;
+}
+
+.header-contents h1 {
+  font-size: 40px;
+  color: white;
+  font-weight: 500;
+}
+
+.header-contents h1 span:not(:first-child)::after {
+  background-color: orangered;
+}
+
+.header-contents p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #bd8fe8;
+}
+
+.header-contents p::after {
+  background-color: #bd8fe8;
+}
+
+.contents-left img {
+  opacity: 0.6;
+}
+
+.contents-left span {
+  font-size: 30px;
+  color: white;
+}
+
+.contents-right {
+  background: white;
+}
+
+.contents-right h2 {
+  font-size: 18px;
+  color: #673399;
+}
+
+.contents-right ul {
+  list-style: none;
+}
+
+.contents-right ul li {
+  font-size: 14px;
+}
+
+.contents-right ul li::after {
+  border-radius: 5px;
+  background: #bd8fe8;
+}
+
+/* Media query */
+
+@media (min-width: 733px) and (max-width: 1106px) {
+  .container {
+    min-width: 560px;
+    margin: 100px 30px;
+  }
+  .header-contents {
+    flex-direction: column;
+  }
+
+  .header-contents h1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    max-width: 54%;
+  }
+
+  .header-contents h1 span:nth-child(2)::after {
+    width: 245px;
+  }
+
+  .header-contents h1 span:nth-child(3)::after {
+    width: 192px;
+  }
+
+  .header-contents p {
+    padding: 50px 0;
+    width: 688px;
+    max-width: unset;
+  }
+
+  .header-contents p::after {
+    content: unset;
+  }
+}
+
+@media (max-width: 732px) {
+  .main-contents {
+    gap: 40px;
+  }
+  .container {
+    min-width: 450px;
+    margin: 100px 50px;
+  }
+  .header-contents {
+    flex-direction: column;
+  }
+
+  .header-contents h1 {
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    max-width: 50%;
+  }
+
+  .header-contents h1 span:nth-child(2)::after {
+    width: 197px;
+  }
+
+  .header-contents h1 span:nth-child(3)::after {
+    width: 155px;
+  }
+
+  .header-contents p {
+    padding: 50px 0;
+    width: 480px;
+    max-width: unset;
+  }
+
+  .header-contents p::after {
+    content: unset;
+  }
+
+  .contents {
+    flex-direction: column;
+  }
+
+  .contents-left {
+    width: 100%;
+    aspect-ratio: unset;
+  }
+  .contents-left img {
+    aspect-ratio: 10/4;
+    object-fit: cover;
+    vertical-align: top;
+  }
+
+  .contents:nth-child(even) .contents-left {
+    order: unset;
+  }
+
+  .contents-right {
+    width: auto;
+  }
+}
